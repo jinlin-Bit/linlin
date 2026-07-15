@@ -1,0 +1,1246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'ZCOOL KuaiLe', cursive;
+    overflow: hidden;
+    background: #191970;
+}
+
+#star-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#app {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease-in-out;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.golden-button {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+    border: 4px solid #fff;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 24px;
+    font-family: 'Ma Shan Zheng', cursive;
+    color: #8B4513;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: bounce 2s infinite;
+}
+
+.golden-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.6);
+}
+
+.golden-button:active {
+    transform: scale(0.95);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.button-text {
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.button-star, .button-arrow {
+    font-size: 28px;
+}
+
+#scene-home {
+    background: rgba(10, 10, 30, 0.3);
+    position: relative;
+    overflow: visible;
+}
+
+#scene-home::before {
+    display: none;
+}
+
+#scene-home::after {
+    display: none;
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    animation: fadeInUp 2s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-title {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 48px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFE4B5 50%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)); }
+    to { filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.8)); }
+}
+
+.sub-title {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #E6E6FA;
+}
+
+.polaris {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.polaris-star {
+    width: 30px;
+    height: 30px;
+    background: #FFD700;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: twinkle 1s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.6; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.2); }
+}
+
+.polaris-glow {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.3); opacity: 0.3; }
+}
+
+.polaris-label {
+    margin-top: 15px;
+    color: #FFD700;
+    font-size: 16px;
+}
+
+#scene-journey {
+    background: rgba(5, 5, 20, 0.4);
+    position: relative;
+    overflow: visible;
+}
+
+#scene-journey::before {
+    display: none;
+}
+
+#scene-journey::after {
+    display: none;
+}
+
+.journey-content {
+    text-align: center;
+    color: #fff;
+}
+
+.journey-title {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 52px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFE4B5 50%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.journey-subtitle {
+    font-size: 26px;
+    color: #E6E6FA;
+    margin-bottom: 30px;
+}
+
+.footprints {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.footprint {
+    font-size: 40px;
+    animation: walk 1.5s ease-in-out infinite;
+}
+
+.footprint:nth-child(1) { animation-delay: 0s; }
+.footprint:nth-child(2) { animation-delay: 0.5s; }
+.footprint:nth-child(3) { animation-delay: 1s; }
+
+@keyframes walk {
+    0%, 100% { opacity: 0.3; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-10px); }
+}
+
+#scene-bedroom-0 {
+    background: url('images/nursery-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    overflow: visible;
+}
+
+#scene-bedroom-0::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-0::after {
+    display: none;
+}
+
+#scene-bedroom-1 {
+    background: url('images/toddler-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-2 {
+    background: url('images/two-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-3 {
+    background: url('images/three-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-4 {
+    background: url('images/four-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-5 {
+    background: url('images/five-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-5::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-6 {
+    background: url('images/six-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-6::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-7 {
+    background: url('images/seven-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-7::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-8 {
+    background: url('images/eight-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-8::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-9 {
+    background: url('images/nine-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-9::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-10 {
+    background: url('images/ten-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-10::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-11 {
+    background: url('images/eleven-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-11::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-12 {
+    background: url('images/twelve-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-12::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-13 {
+    background: url('images/thirteen-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-13::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-14 {
+    background: url('images/fourteen-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-14::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-15 {
+    background: url('images/fifteen-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-15::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-16 {
+    background: url('images/sixteen-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-16::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-17 {
+    background: url('images/seventeen-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-17::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-18 {
+    background: url('images/eighteen-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-18::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-bedroom-19 {
+    background: url('images/nineteen-year-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+#scene-bedroom-19::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 245, 245, 0.5);
+    z-index: -1;
+}
+
+#scene-cake {
+    background: linear-gradient(180deg, #ffebf0 0%, #fce4ec 30%, #f3e5f5 50%, #e8eaf6 70%, #e0f7fa 100%);
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.cake-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.cake-wrapper {
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+.cake-image {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2),
+                0 0 40px rgba(255, 183, 204, 0.3);
+    animation: cakeGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes cakeGlow {
+    from { box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 40px rgba(255, 183, 204, 0.3); }
+    to { box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 60px rgba(255, 183, 204, 0.5), 0 0 80px rgba(255, 159, 243, 0.3); }
+}
+
+.cake-candles {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+.candle {
+    position: relative;
+    width: 10px;
+    height: 45px;
+    background: repeating-linear-gradient(
+        90deg,
+        #d4af37 0px,
+        #d4af37 5px,
+        #f0d75a 5px,
+        #f0d75a 10px
+    );
+    border-radius: 3px 3px 0 0;
+    animation: candleSway 3s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+
+@keyframes candleSway {
+    0%, 100% { transform: rotate(-1deg); }
+    50% { transform: rotate(1deg); }
+}
+
+.candle:nth-child(1) { animation-delay: 0s; height: 48px; }
+.candle:nth-child(2) { animation-delay: 0.2s; height: 44px; }
+.candle:nth-child(3) { animation-delay: 0.4s; height: 46px; }
+.candle:nth-child(4) { animation-delay: 0.6s; height: 42px; }
+.candle:nth-child(5) { animation-delay: 0.8s; height: 50px; }
+
+.candle-flame {
+    position: absolute;
+    top: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 26px;
+    background: linear-gradient(180deg, #fff9c4 0%, #fff59d 20%, #ffeb3b 40%, #ff9800 70%, #f44336 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: flame 0.4s ease-in-out infinite alternate;
+    box-shadow: 0 0 25px #ffeb3b, 0 0 50px #ff9800, 0 0 75px rgba(255, 152, 0, 0.4);
+}
+
+@keyframes flame {
+    0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+    100% { transform: translateX(-50%) scale(1.08) rotate(2deg); }
+}
+
+.candle-wick {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 8px;
+    background: #2d2d2d;
+    border-radius: 1px;
+}
+
+.cake-message-box {
+    text-align: center;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 159, 243, 0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.cake-message-main {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 32px;
+    color: #c44569;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2), 0 0 15px rgba(255, 107, 157, 0.4);
+    animation: glow 2s ease-in-out infinite alternate;
+    margin-bottom: 8px;
+}
+
+.cake-message-sub {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 22px;
+    color: #ffd700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2), 0 0 10px rgba(255, 215, 0, 0.4);
+    animation: glow-gold 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 1px 1px 2px rgba(0,0,0,0.2), 0 0 10px rgba(255, 107, 157, 0.4); }
+    to { text-shadow: 1px 1px 2px rgba(0,0,0,0.2), 0 0 20px rgba(255, 159, 243, 0.6), 0 0 30px rgba(255, 107, 157, 0.4); }
+}
+
+@keyframes glow-gold {
+    from { text-shadow: 1px 1px 2px rgba(0,0,0,0.2), 0 0 8px rgba(255, 215, 0, 0.4); }
+    to { text-shadow: 1px 1px 2px rgba(0,0,0,0.2), 0 0 15px rgba(255, 215, 0, 0.6), 0 0 25px rgba(255, 183, 0, 0.4); }
+}
+
+.cake-sparkles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #ffd700;
+    border-radius: 50%;
+    animation: sparkleFall 4s ease-in infinite;
+}
+
+@keyframes sparkleFall {
+    0% { transform: translateY(-10px) rotate(0deg) scale(1); opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(100vh) rotate(720deg) scale(0.5); opacity: 0; }
+}
+
+.cake-petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 90;
+}
+
+.cake-petal {
+    position: absolute;
+    width: 20px;
+    height: 25px;
+    background: linear-gradient(135deg, #ffcad4 0%, #ffb3c1 50%, #ff8fab 100%);
+    border-radius: 50% 0 50% 50%;
+    animation: petalFall 6s ease-in infinite;
+}
+
+@keyframes petalFall {
+    0% { transform: translateY(-20px) rotate(0deg) scale(1); opacity: 1; }
+    25% { transform: translateY(25vh) rotate(90deg) scale(0.9); }
+    50% { transform: translateY(50vh) rotate(180deg) scale(1); }
+    75% { transform: translateY(75vh) rotate(270deg) scale(0.9); }
+    100% { transform: translateY(100vh) rotate(360deg) scale(0.8); opacity: 0; }
+}
+
+.cake-lights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 40;
+}
+
+.cake-light {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #ffd700;
+    border-radius: 50%;
+    animation: lightTwinkle 2s ease-in-out infinite;
+    box-shadow: 0 0 15px #ffd700, 0 0 30px #ffd700;
+}
+
+@keyframes lightTwinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.bedroom-content {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.room-decoration {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.nursery-scene {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 30px;
+}
+
+.baby-stroller {
+    position: relative;
+    width: 150px;
+    height: 180px;
+}
+
+.stroller-body {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 80px;
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+    border-radius: 20px 20px 5px 5px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+}
+
+.stroller-hood {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 70px;
+    background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 100%);
+    border-radius: 50px 50px 0 0;
+    animation: hoodSway 3s ease-in-out infinite;
+}
+
+@keyframes hoodSway {
+    0%, 100% { transform: translateX(-50%) rotate(-2deg); }
+    50% { transform: translateX(-50%) rotate(2deg); }
+}
+
+.stroller-wheel {
+    position: absolute;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    background: #333;
+    border-radius: 50%;
+    border: 3px solid #555;
+    animation: wheelRoll 4s linear infinite;
+}
+
+.wheel-left {
+    left: 15px;
+}
+
+.wheel-right {
+    right: 15px;
+}
+
+@keyframes wheelRoll {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.baby-0 {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 45px;
+    animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
+
+.caregiver {
+    font-size: 60px;
+    animation: gentleSway 4s ease-in-out infinite;
+}
+
+@keyframes gentleSway {
+    0%, 100% { transform: translateX(0) rotate(-3deg); }
+    50% { transform: translateX(10px) rotate(3deg); }
+}
+
+.nursery-decor {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nursery-decor .lamp {
+    font-size: 40px;
+    animation: lampGlow 2s ease-in-out infinite;
+}
+
+@keyframes lampGlow {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+.nursery-decor .flowers {
+    font-size: 30px;
+    animation: flowerSway 3s ease-in-out infinite;
+}
+
+@keyframes flowerSway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.stars-mobile {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+.story-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 232, 232, 0.9) 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 3px solid #FFD700;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+.story-title {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 32px;
+    color: #FF69B4;
+    margin-bottom: 20px;
+}
+
+.story-text {
+    font-size: 20px;
+    color: #4A4A4A;
+    line-height: 1.8;
+}
+
+.yoga-mat {
+    position: relative;
+    width: 250px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.mat {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 120px;
+    background: linear-gradient(135deg, #98FB98 0%, #90EE90 100%);
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.baby-1 {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 45px;
+    animation: crawl 2s ease-in-out infinite;
+}
+
+@keyframes crawl {
+    0%, 100% { transform: translateX(-50%) rotate(0deg); }
+    25% { transform: translateX(-30%) rotate(-10deg); }
+    75% { transform: translateX(-70%) rotate(10deg); }
+}
+
+.crawl-lines {
+    position: absolute;
+    bottom: 25px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.crawl-lines .line {
+    width: 80px;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+.mobile-hanger {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    animation: swing 3s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0%, 100% { transform: translateX(-50%) rotate(-10deg); }
+    50% { transform: translateX(-50%) rotate(10deg); }
+}
+
+.play-area {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.building-blocks {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.block {
+    font-size: 30px;
+    animation: stack 3s ease-in-out infinite;
+}
+
+.block-red { animation-delay: 0s; }
+.block-blue { animation-delay: 0.5s; }
+.block-yellow { animation-delay: 1s; }
+.block-green { animation-delay: 1.5s; }
+
+@keyframes stack {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.baby-2 {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    animation: play 2s ease-in-out infinite;
+}
+
+@keyframes play {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.08); }
+}
+
+.bookshelf {
+    position: absolute;
+    top: -60px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.book {
+    font-size: 25px;
+    animation: bookWiggle 2s ease-in-out infinite;
+}
+
+.book:nth-child(1) { animation-delay: 0s; }
+.book:nth-child(2) { animation-delay: 0.7s; }
+.book:nth-child(3) { animation-delay: 1.4s; }
+
+@keyframes bookWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(3deg); }
+}
+
+.final-message {
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 182, 193, 0.2) 100%);
+    border-radius: 15px;
+    border: 2px dashed #FFD700;
+}
+
+.final-message p {
+    font-size: 22px;
+    color: #FF69B4;
+    margin-bottom: 10px;
+}
+
+.final-message .heart {
+    font-size: 32px;
+    animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 32px;
+    }
+    
+    .sub-title {
+        font-size: 18px;
+    }
+    
+    .golden-button {
+        padding: 12px 30px;
+        font-size: 20px;
+    }
+    
+    .journey-title {
+        font-size: 36px;
+    }
+    
+    .journey-subtitle {
+        font-size: 20px;
+    }
+    
+    .story-card {
+        padding: 20px;
+    }
+    
+    .story-title {
+        font-size: 26px;
+    }
+    
+    .story-text {
+        font-size: 16px;
+    }
+    
+    .nursery-scene {
+        width: 280px;
+        height: 200px;
+        gap: 15px;
+    }
+    
+    .baby-stroller {
+        width: 100px;
+        height: 130px;
+    }
+    
+    .stroller-body {
+        width: 80px;
+        height: 55px;
+    }
+    
+    .stroller-hood {
+        width: 65px;
+        height: 45px;
+    }
+    
+    .stroller-wheel {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .baby-0 {
+        font-size: 32px;
+        top: 35px;
+    }
+    
+    .caregiver {
+        font-size: 45px;
+    }
+    
+    .nursery-decor {
+        right: 10px;
+        top: 10px;
+    }
+    
+    .nursery-decor .lamp {
+        font-size: 28px;
+    }
+    
+    .nursery-decor .flowers {
+        font-size: 22px;
+    }
+    
+    .yoga-mat {
+        width: 200px;
+        height: 160px;
+    }
+    
+    .mat {
+        width: 160px;
+        height: 90px;
+    }
+    
+    .play-area {
+        width: 250px;
+        height: 180px;
+    }
+}
+
+.scene-transition {
+    animation: sceneTransition 1s ease-in-out;
+}
+
+@keyframes sceneTransition {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}

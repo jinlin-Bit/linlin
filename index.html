@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小公主生日祝福</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <canvas id="star-canvas"></canvas>
+        
+        <div id="scene-home" class="scene active">
+            <div class="hero-content">
+                <h1 class="main-title">今天是我们小公主的生日</h1>
+                <p class="sub-title">点此开启神秘星空之旅 ✨</p>
+                <button class="golden-button" onclick="goToScene('journey')">
+                    <span class="button-text">开启星空之旅</span>
+                    <span class="button-star">⭐</span>
+                </button>
+            </div>
+            <div class="polaris">
+                <div class="polaris-star"></div>
+                <div class="polaris-glow"></div>
+                <span class="polaris-label">北极星</span>
+            </div>
+        </div>
+
+        <div id="scene-journey" class="scene">
+            <div class="journey-content">
+                <h1 class="journey-title">跟随我的脚步</h1>
+                <p class="journey-subtitle">我们一起开启旅程 🌟</p>
+                <div class="footprints">
+                    <div class="footprint">👣</div>
+                    <div class="footprint">👣</div>
+                    <div class="footprint">👣</div>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-0')">
+                    <span class="button-text">开始旅程</span>
+                    <span class="button-arrow">→</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-0" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2007年7月16日</h2>
+                    <p class="story-text">
+                        这一天世界迎来了它的女主人，<br>
+                        我们的小公主出生啦！<br>
+                        此时我们的小公主0岁，<br>
+                        嗷嗷待哺，但是身上散发着<br>
+                        与众不同的光芒，<br>
+                        此时的小公主被爱包围着 💖
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-1')">
+                    <span class="button-text">我长大一岁啦</span>
+                    <span class="button-star">🎂</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-1" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2008年7月16日</h2>
+                    <p class="story-text">
+                        我们的小公主长大1岁啦！<br>
+                        小公主对世界的美好充满好奇，<br>
+                        现在开始学习走路呢~<br>
+                        摇摇晃晃的样子真可爱！<br>
+                        每一步都是成长的印记 👣
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-2')">
+                    <span class="button-text">小公主又长大1岁</span>
+                    <span class="button-star">✨</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-2" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2009年7月16日</h2>
+                    <p class="story-text">
+                        此时我们的小公主2岁啦！<br>
+                        开始学习语言，<br>
+                        我们小公主的英语天赋<br>
+                        也许从此刻开始显露！<br>
+                        聪明伶俐的小公主，<br>
+                        未来可期！ 💫
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-3')">
+                    <span class="button-text">我又成长一岁啦</span>
+                    <span class="button-star">🌟</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-3" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2010年7月16日</h2>
+                    <p class="story-text">
+                        此时我们小公主3岁啦！<br>
+                        此时我们的小公主应该是活力四射，<br>
+                        喜欢去学习和好奇新的东西，<br>
+                        此时我们小公主也会问妈妈和爹地问题啦！<br>
+                        每天都充满好奇心，<br>
+                        探索这个美好的世界！ 🎈
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-4')">
+                    <span class="button-text">我又长大了一岁，变棒了</span>
+                    <span class="button-star">✨</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-4" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2011年7月16日</h2>
+                    <p class="story-text">
+                        此时我们的小公主开始上幼儿园了吧，<br>
+                        是低班哦！<br>
+                        我们小公主接触到其他的小朋友，<br>
+                        我们也学习去交朋友和新的知识！<br>
+                        在幼儿园里度过快乐的时光，<br>
+                        每天都充满欢笑！ 🎒
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-5')">
+                    <span class="button-text">我又长一岁啦，我高班啦！</span>
+                    <span class="button-star">🎓</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-5" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2012年7月16日</h2>
+                    <p class="story-text">
+                        此时的小公主依旧成为幼儿园中最漂亮的小公主，<br>
+                        并且也学到了知识和交到了很多小朋友！<br>
+                        我们小公主的学习能力和人际交往能力开始显现，<br>
+                        小公主特别厉害！<br>
+                        不愧是高班嘟大王萌王琳琳！👑
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-6')">
+                    <span class="button-text">我又长大一岁啦，我要上小学啦！是一个新的开始</span>
+                    <span class="button-star">✨</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-6" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2013年7月16日</h2>
+                    <p class="story-text">
+                        我们的萌王琳琳现在是小一啦！<br>
+                        是一个要学习更新的知识的棒棒的小朋友！<br>
+                        我们会学到新的知识，交new朋友，<br>
+                        相比我们萌王琳琳也是得心应手嘟！<br>
+                        小学一年级，开启新的旅程！ 🎒
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-7')">
+                    <span class="button-text">我又长大啦，现在是小二噜</span>
+                    <span class="button-star">🌟</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-7" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2014年7月16日</h2>
+                    <p class="story-text">
+                        经过1年的学习我们萌王琳琳已经是小二啦！<br>
+                        又长了一岁，也学到更多东西噜！<br>
+                        但是学习之路还在路上，还是要不断的坚持！<br>
+                        想必我们萌王琳琳在小二也会发光发热嘟！<br>
+                        也体验了很多好玩的噜！ ✨
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-8')">
+                    <span class="button-text">我又长大1岁啦，现在是小三年级</span>
+                    <span class="button-star">🎓</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-8" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2015年7月16日</h2>
+                    <p class="story-text">
+                        现在是三年级啦！<br>
+                        不亏是我们最棒的萌王琳琳！<br>
+                        相比现在嘟萌王琳琳被爱包围着，<br>
+                        十一日都在庆祝我们萌王琳琳嘟生日！<br>
+                        也发现了生活的美好，<br>
+                        我们会一直一直前进嘟！ 💖
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-9')">
+                    <span class="button-text">我又长大一岁啦，现在是小四噜</span>
+                    <span class="button-star">✨</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-9" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2016年7月16日</h2>
+                    <p class="story-text">
+                        我们萌王琳琳现在是小四啦！<br>
+                        9岁嘟萌王琳琳肯定是可可爱爱嘟！<br>
+                        好奇知识，学习语言，<br>
+                        相比我们萌王琳琳英语天赋越来越厉害嘟！<br>
+                        下一年就是萌王琳琳10岁生日噜，<br>
+                        周岁的生日相比是盛大的，很期待吖！ 🎂
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-10')">
+                    <span class="button-text">我10周岁啦，周岁哦！</span>
+                    <span class="button-star">🎉</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-10" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2017年7月16日</h2>
+                    <p class="story-text">
+                        现在我们萌王琳琳是小五年纪啦！<br>
+                        下一年就是小六啦，然后就是中一年纪！<br>
+                        哇哦，萌王琳琳越来越棒噜！<br>
+                        好厉害呀！<br>
+                        这一次的生日也是我们萌王琳琳10岁，<br>
+                        周岁的生日想必是盛大开心嘟！<br>
+                        错过了萌王琳琳的10周岁，<br>
+                        我可不能错过萌王琳琳以后嘟周岁！<br>
+                        岁岁有我，萌王琳琳天下第一！ 👑
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-11')">
+                    <span class="button-text">我又长大啦，马上小六年纪</span>
+                    <span class="button-star">🌟</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-11" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2018年7月16日</h2>
+                    <p class="story-text">
+                        这一次我们萌王琳琳小六啦！<br>
+                        但是萌王琳琳生日是暑假相比已经结束了小六年纪的学习！<br>
+                        想必萌王琳琳已经考上了心意的中学！<br>
+                        很棒哇！学习之路又前进啦！<br>
+                        萌王琳琳天下第一厉害！<br>
+                        相信我们萌王琳琳会在中学闪闪发光嘟！ ✨
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-12')">
+                    <span class="button-text">开启新的学习之旅，我中一啦！</span>
+                    <span class="button-star">🎒</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-12" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2019年7月16日</h2>
+                    <p class="story-text">
+                        经过上半年的中一学习，<br>
+                        不知道我们萌王琳琳感觉怎么样啦！<br>
+                        想必我们嘟萌王琳琳得心应手游刃有余噜！<br>
+                        交到新朋友，学习新知识，<br>
+                        学习之路仍在路上，<br>
+                        加油最棒嘟萌王琳琳！ 💪
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-13')">
+                    <span class="button-text">经过一年学习我中二啦，现在13岁噜</span>
+                    <span class="button-star">💖</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-13" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2020年7月16日</h2>
+                    <p class="story-text">
+                        又经过了一年的学习相比中一我们嘟萌王琳琳肯定更加成熟！<br>
+                        学到了新的知识，此时是青春期吧！<br>
+                        我们嘟萌王琳琳青春期肯定是好看，努力嘟！<br>
+                        而且萌王琳琳也越来越可爱噜，嘻嘻！<br>
+                        萌王琳琳此时越来越厉害，掌握的也越来越多啦！<br>
+                        请一直保持向前向上嘟活力萌王琳琳！<br>
+                        真的很棒！ 💖
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-14')">
+                    <span class="button-text">我又长大啦，马上中三噜！</span>
+                    <span class="button-star">🌟</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-14" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2021年7月16日</h2>
+                    <p class="story-text">
+                        现在嘟萌王琳琳14岁，中三啦！<br>
+                        这一年的学习是不是也是辛苦喔！<br>
+                        也学到了更多的知识，<br>
+                        坚持学习嘟萌王琳琳很厉害很棒喔！<br>
+                        不愧是我们萌王琳琳！<br>
+                        想必中三的知识对萌王琳琳开始得心应手！<br>
+                        生日也是开开心心嘟收到很多礼物！ 🎁
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-15')">
+                    <span class="button-text">我15岁啦，中四噜！</span>
+                    <span class="button-star">✨</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-15" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2022年7月16日</h2>
+                    <p class="story-text">
+                        现在萌王琳琳中四啦！<br>
+                        这个年纪是不是会叛逆吖因为青春期咩？<br>
+                        不过感觉我们嘟萌王琳琳不会！<br>
+                        因为我了解的萌王琳琳是一个很棒的对人很好很友善的萌王琳琳！<br>
+                        此时此刻，恰同学少年，风华正茂！<br>
+                        加油最棒嘟萌王琳琳！ 💪
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-16')">
+                    <span class="button-text">我16岁啦，现在是中五噜！</span>
+                    <span class="button-star">🎂</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-16" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2023年7月16日</h2>
+                    <p class="story-text">
+                        现在嘟萌王琳琳16岁啦！<br>
+                        不过是不是学习的压力变大啦！<br>
+                        马上中六噜，是不是也会有压力？<br>
+                        不过我相信我们萌王琳琳会坚持下去并且努力学习的！<br>
+                        这一次的生日肯定也是开心嘟！<br>
+                        萌王琳琳怎么可以这么棒捏！<br>
+                        马上步入中六是非常非常厉害嘟萌王琳琳！ 🎉
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-17')">
+                    <span class="button-text">我17岁啦，中六啦！</span>
+                    <span class="button-star">🎓</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-17" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2024年7月16日</h2>
+                    <p class="story-text">
+                        现在中六啦！<br>
+                        马上要面对DSE考试噜！<br>
+                        不过我相信我们萌王琳琳是最棒哒！<br>
+                        17岁的生日也是有对未来的期待！<br>
+                        加油！你可以的！ 💫
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-18')">
+                    <span class="button-text">我18岁啦，我成人啦！</span>
+                    <span class="button-star">👑</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-18" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2025年7月16日</h2>
+                    <p class="story-text">
+                        萌王琳琳18岁啦！<br>
+                        成人礼肯定是盛大的，礼物也是多的！<br>
+                        萌王琳琳也考上了心意的大学！<br>
+                        可以说是多喜临门！<br>
+                        我们也是在萌王琳琳18岁的时候遇见的！<br>
+                        我们慢慢了解，知道彼此！<br>
+                        很开心和萌王琳琳遇见，三生有幸喔！<br>
+                        萌王琳琳真的是一个很好的人！<br>
+                        我愿意一直陪着萌王琳琳！<br>
+                        我会一直在嘟！ 💖
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('bedroom-19')">
+                    <span class="button-text">现在是我的19岁！</span>
+                    <span class="button-star">🎉</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-bedroom-19" class="scene">
+            <div class="bedroom-content">
+                <div class="story-card">
+                    <h2 class="story-title">2026年7月16日</h2>
+                    <p class="story-text">
+                        现在是萌王琳琳的19岁生日快乐！<br>
+                        我的全世界！<br>
+                        很开心我可以和萌王琳琳一起过生日！<br>
+                        这是我第一次和萌王琳琳一起过生日，也是我第一次捏！<br>
+                        这个是我们一起过的第一个生日！<br>
+                        以后的每一个生日都会有我！<br>
+                        年年有我，岁岁有我！<br>
+                        我也希望萌王琳琳健健康康的，开开心心的！<br>
+                        开心幸福！<br>
+                        我也会遵守我的承诺！<br>
+                        萌王琳琳年年安，岁岁平！<br>
+                        健康快乐幸福！<br>
+                        生日快乐萌王琳琳！ 🎂💖
+                    </p>
+                </div>
+                <button class="golden-button" onclick="goToScene('cake')">
+                    <span class="button-text">祝我的全世界生日快乐！</span>
+                    <span class="button-star">🎂</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="scene-cake" class="scene">
+            <div class="cake-lights" id="cake-lights"></div>
+            <div class="cake-petals" id="cake-petals"></div>
+            <div class="cake-sparkles" id="cake-sparkles"></div>
+            <div class="cake-container">
+                <div class="cake-wrapper">
+                    <img src="images/cake-bg.jpg" alt="生日蛋糕" class="cake-image">
+                </div>
+                <div class="cake-message-box">
+                    <div class="cake-message-main">祝我的全世界萌王琳琳生日快乐！</div>
+                    <div class="cake-message-sub">幸福快乐 💖</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

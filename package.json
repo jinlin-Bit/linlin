@@ -1,0 +1,11 @@
+{
+  "name": "linlin-birthday",
+  "version": "1.0.0",
+  "description": "琳琳生日祝福网站",
+  "scripts": {
+    "build": "mkdir -p dist && cp -r index.html styles.css script.js images/ dist/",
+    "dev": "python -m http.server 8000"
+  },
+  "author": "",
+  "license": "MIT"
+}

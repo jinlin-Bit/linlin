@@ -1,0 +1,5 @@
+{
+  "buildCommand": "mkdir -p dist && copy index.html dist\\ && copy styles.css dist\\ && copy script.js dist\\ && xcopy images dist\\images\\ /E /I /Y",
+  "outputDirectory": "dist",
+  "framework": null
+}
